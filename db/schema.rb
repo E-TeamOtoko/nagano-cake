@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["tax_excluded_price"], name: "index_items_on_tax_excluded_price"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
