@@ -1,2 +1,0 @@
-module Admin::GenreHelper
-end
