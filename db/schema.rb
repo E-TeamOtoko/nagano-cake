@@ -113,5 +113,4 @@ ActiveRecord::Schema.define(version: 2023_01_18_074601) do
   add_foreign_key "cart_items", "customers"
   add_foreign_key "cart_items", "items"
   add_foreign_key "items", "genres"
-  
 end
