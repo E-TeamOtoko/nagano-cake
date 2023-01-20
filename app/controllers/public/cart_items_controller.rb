@@ -1,4 +1,5 @@
-class CartItemsController < ApplicationController
+class Public::CartItemsController < ApplicationController
+
   def index
   end
 
@@ -13,4 +14,5 @@ class CartItemsController < ApplicationController
 
   def destroy_all
   end
+
 end
