@@ -4,9 +4,52 @@
      <h5>商品新規登録</h5>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-lg-5 col-md-6 ml-5 mr-5">
-      商品画像
+    <div class="col-lg-4">
+      <%= form_with model: @nazo do |f| %>
+        <div class="form-group row">
+          <%= f.label :image, "商品画像" %>
+          <div class="col-lg-8">
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :item_name, "商品名" %>
+          <div class="col-lg-8">
+            <%= f.text_field :item_name %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :item_introduction, "商品説明" %>
+          <div class="col-lg-8">
+            <%= f.text_area :item_introduction %>
+          </div>
+        </div>
+        <div class ="form-group row">
+          <%= f.label :genre, "ジャンル" %>
+          <div class="col-lg-8">
+          <%= f.select :genre, ["sample1","sample2"] %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :tax_excluded_price, "税抜価格" %>
+        <div class="col-lg-8">
+          <%= f.number_field :tax_excluded_price %>
+        </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :sales_status, "販売ステータス" %>
+          <div class="col-lg-8">
+            <%= f.radio_button :sales_status, :販売中 %>
+            <%= f.label :販売中 %>
+            <%= f.radio_button :sales_status, :販売停止中 %>
+            <%= f.label :販売停止中 %>
+          </div>
+        </div>
+        <%= f.submit "新規登録", class:"btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </div>
+
