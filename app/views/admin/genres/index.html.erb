@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>ジャンル一覧・追加</tr>
+    <tr>
+      <th>ジャンル名</th>
+      <th>
+        <div class="form-group">
+          <%= f.label :genre %>
+          <%= f.text_field :name, class: "form-control genre_name" %>
+        </div>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>ジャンル</tr>
+    <% @genres.each do |genre| %>
+      <tr>
+        <td><%= genre.name %></td>
+        <td><%= link_to 'edit', genre, class: "genru_#{genre.id}" %></td>
+      </tr>
+    <% end %>
+  </table>
+</table>
