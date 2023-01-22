@@ -1,24 +1,33 @@
+        <%= form_with model: [:admin, @genre], method: :patch do |f| %>
 <table class="table">
   <thead>
-    <tr>ジャンル一覧・追加</tr>
-    <tr>
-      <th>ジャンル名</th>
-      <th>
-        <div class="form-group">
-          <%= f.label :genre %>
-          <%= f.text_field :name, class: "form-control genre_name" %>
-        </div>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>ジャンル</tr>
-    <% @genres.each do |genre| %>
+    <div class="genre-new">
+      <h2>ジャンル一覧・追加</h2>
       <tr>
-        <td><%= genre.name %></td>
-        <td><%= link_to 'edit', genre, class: "genru_#{genre.id}" %></td>
+          <div class="form-group">
+            <td><b><%= f.label :ジャンル名 %></b></td>
+            <td><%= f.text_field :name, placeholder: "ジャンル名", class: "form-control genre_name" %></td>
+          </div>
+          <div class="form-group">
+            <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
+          </div>
       </tr>
-    <% end %>
-  </table>
+    </div>
+  </thead>
+</table>
+        <% end %>
+
+<table class="table">
+  <tbody>
+    <div class="genre-index">
+      <tr>ジャンル</tr>
+      <% @genres.each do |genre| %>
+        <tr>
+          <td><%= genre.name %></td>
+          <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-sm btn-success" %></td>
+          <td><%= link_to "削除する", admin_genre_path(genre.id), method: :delete, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </div>
+  </tbody>
 </table>
