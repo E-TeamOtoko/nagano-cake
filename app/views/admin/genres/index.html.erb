@@ -1,21 +1,17 @@
-        <%= form_with model: [:admin, @genre], method: :patch do |f| %>
-<table class="table">
-  <thead>
-    <div class="genre-new">
-      <h2>ジャンル一覧・追加</h2>
-      <tr>
-          <div class="form-group">
-            <td><b><%= f.label :ジャンル名 %></b></td>
-            <td><%= f.text_field :name, placeholder: "ジャンル名", class: "form-control genre_name" %></td>
-          </div>
-          <div class="form-group">
-            <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
-          </div>
-      </tr>
+<div class="genre-new">
+  <h5>ジャンル一覧・追加</h5>
+  <%= form_with model: [:admin, @genre] do |f| %>
+    <div class="form-group">
+      <b><%= f.label :ジャンル名 %></b>
     </div>
-  </thead>
-</table>
-        <% end %>
+    <div class="form-group">
+      <%= f.text_field :name, placeholder: "ジャンル名", class: "form-control genre_name" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit '新規登録', class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
 
 <table class="table">
   <tbody>
