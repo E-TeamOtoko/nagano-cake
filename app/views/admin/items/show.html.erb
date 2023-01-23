@@ -7,33 +7,33 @@
 
   <div class="row">
     <div class="col-lg-4">
-      <%= image_tag @item.image, size: "200x200" %>
+      <%= image_tag "no_image.jpg", size: "10×10" %>
     </div>
 
     <div class="col-lg-6">
       <table>
         <tr>
           <th>商品名</th>
-          <td><%= @item.item_name %></td>
+          <td><%# @item.item_name %></td>
         </tr>
         <tr>
           <th>商品説明</th>
-          <td><%= @item.item_introduction %></td>
+          <td><%# @item.item_introdction %></td>
         </tr>
         <tr>
           <th>ジャンル</th>
-          <td><%= @item.genre.name %></td>
+          <td><%# @item.genre %></td>
         </tr>
         <tr>
           <th>税抜価格</th>
-          <td><%= @item.tax_excluded_price %></td>
+          <td><%# @item.tax_ecluded_price %></td>
         </tr>
         <tr>
           <th>販売ステータス</th>
-          <td><%= @item.sales_status %></td>
+          <td><%# @item.sales_status %></td>
         </tr>
       </table>
-      <%= link_to edit_admin_item_path(@item.id) do %>
+      <%= link_to admin_items_new_path do %>
       <button class="btn btn-success btn-md">
       編集する
       </button>
