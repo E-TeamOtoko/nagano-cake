@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :items
   end
-  
+
   namespace :public do
     resources :items, only: [:index, :show]
+    get "/items/genre/:id"=>"items#genre", as: "items_genre"
     resources :cart_items do
       member do
        delete "destroy_all"
@@ -25,6 +26,6 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :customers
   end
-  
+
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

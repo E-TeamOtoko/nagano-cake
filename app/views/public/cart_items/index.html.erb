@@ -1,1 +1,32 @@
-<h1>カート内商品一覧</h1>
+<div class="container mt-5">
+  <div class="row mx-auto">
+    <div class="col-lg-4 col-md-4 bg-light text-center">
+     <h5>ショッピングカート</h5>
+    </div>
+  </div>
+
+  <div class="row mx-auto mt-3">
+    <div class="col-lg-10 col-md-10">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cartitems.each do |cartitem| %>
+          <tr>
+            <td>
+              <%= image_tag cartitem.item.image, size: "100x100" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
