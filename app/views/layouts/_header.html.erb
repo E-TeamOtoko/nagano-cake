@@ -8,18 +8,56 @@
        </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto navbar-inline">
-         <li class="ml-3 col-lg-3 col-md-1">
-           <div class="border border-dark text-center">text</div>
-         </li>
-         <li class="ml-3 col-lg-3 col-md-1 text-center">
-           <div class="border border-dark">text</div>
-         </li>
-         <li class="ml-3 col-lg-3 col-md-1 text-center">
-           <div class="border border-dark">text</div>
-         </li>
+        <% if customer_signed_in? %>
+        
+          <li class="ml-3 col-lg-3 col-md-1">
+            <div class="border border-dark text-center">
+                <a data-method="get" href="<%= public_customer_path(current_customer) %>">
+                    マイページ
+                </a>
+            </div>
+          </li>
+          
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">商品一覧</div>
+          </li>
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">カート</div>
+          </li>
+          
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">
+                <a data-method="delete" href="<%= destroy_customer_session_path %>">
+                    ログアウト
+                </a>
+            </div>
+          </li>
+          
+        <% else %>
+          <li class="ml-3 col-lg-3 col-md-1">
+            <div class="border border-dark text-center">About</div>
+          </li>
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">商品一覧</div>
+          </li>
+          
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">
+                <a data-method="get" href="<%= new_customer_registration_path %>">
+                    新規登録
+                </a>
+            </div>
+          </li>
+          
           <li class="ml-3  col-lg-3 col-md-1 text-center">
-           <div class="border border-dark">text</div>
-         </li>
+            <div class="border border-dark">
+                <a data-method="get" href="<%= new_customer_session_path %>">
+                    ログイン
+                </a>
+            </div>
+          </li>
+          
+        <% end %>
         </ul>
       </div>
     </div>
