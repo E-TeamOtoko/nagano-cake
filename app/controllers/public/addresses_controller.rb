@@ -6,6 +6,7 @@ class Public::AddressesController < ApplicationController
   end
   
   def edit
+    @address = Address.find(params[:id])
   end
   
   def create
@@ -35,13 +36,13 @@ class Public::AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:name, :address, :postal_code)
+    params.require(:address).permit(:customer_id, :name, :address, :postal_code)
   end
   
   def ensure_correct_customer
     @address = Address.find(params[:id])
     unless @address.customer == current_customer
-      redirect_to addresses_path
+      redirect_to public_customer_path
     end
   end
   
