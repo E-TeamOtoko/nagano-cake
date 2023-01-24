@@ -34,7 +34,7 @@
         <td><%= address.postal_code %></td>
         <td><%= address.address %></td>
         <td><%= address.name %></td>
-        <% if @book.user == current_user %>
+        <% if @address.customer == current_customer %>
           <td><%= link_to "編集する", edit_public_address_path(address.id), class: "btn btn-sm btn-success" %></td>
           <td><%= link_to "削除する", public_address_path(address.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %></td>
         <% end %>

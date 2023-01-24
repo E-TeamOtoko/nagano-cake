@@ -13,7 +13,7 @@ class Public::AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
-      redirect_to address_path(@address), notice: "You have created address successfully."
+      redirect_to  public_addresses_path(@customer), notice: "You have created address successfully."
     else
       @addresses = Address.all
       render :index
@@ -22,7 +22,7 @@ class Public::AddressesController < ApplicationController
   
   def update
     if @address.update(address_params)
-      redirect_to address_path(@address), notice: "You have updated address successfully."
+      redirect_to  public_addresses_path(@customer), notice: "You have updated address successfully."
     else
       render "edit"
     end
