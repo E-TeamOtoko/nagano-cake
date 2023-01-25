@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get "" => "homes#top"
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :items
+    resources :orders, only: [:index, :show, :update]
   end
 
   namespace :public do
@@ -24,6 +25,12 @@ Rails.application.routes.draw do
     end
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :customers
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get  'success'
+      end
+    end
   end
 
 end
