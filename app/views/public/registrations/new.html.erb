@@ -50,9 +50,9 @@
         </div>
 
         <div class="field">
-          <%= f.label :"パスワード(6文字以上)" %>
+          <%= f.label :パスワード %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+            (<%= @minimum_password_length %>文字以上)
           <% end %>
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :items
   end
 
-  namespace :public do
+  scope module: :public do
+    root :to => "homes#top"
+    get "about" => "homes#about"
     resources :items, only: [:index, :show]
     resources :cart_items do
       member do
