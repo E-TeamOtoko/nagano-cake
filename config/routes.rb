@@ -14,9 +14,12 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :items
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show, :update]
   end
 
-  namespace :public do
+  scope module: :public do
+    root :to => "homes#top"
+    get "about" => "homes#about"
     resources :items, only: [:index, :show]
     resources :cart_items do
       member do
@@ -28,6 +31,12 @@ Rails.application.routes.draw do
       collection do
         get 'confirm_withdraw'
         patch 'withdraw'
+      end
+    end
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get  'success'
       end
     end
   end
