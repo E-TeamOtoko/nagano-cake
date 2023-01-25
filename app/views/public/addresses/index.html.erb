@@ -1,6 +1,6 @@
 <div class="address-new">
   <h5>配送先登録/一覧</h5>
-  <%= form_with model: [:public, @address] do |f| %>
+  <%= form_with model: @address, url: addresses_path(@address), method: :POST do |f| %>
     <div class="form-group">
       <b><%= f.label :郵便番号 %></b>
     </div>
@@ -35,8 +35,8 @@
         <td><%= address.address %></td>
         <td><%= address.name %></td>
         <% if @address.customer == current_customer %>
-          <td><%= link_to "編集する", edit_public_address_path(address.id), class: "btn btn-sm btn-success" %></td>
-          <td><%= link_to "削除する", public_address_path(address.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %></td>
+          <td><%= link_to "編集する", edit_address_path(address.id), class: "btn btn-sm btn-success" %></td>
+          <td><%= link_to "削除する", address_path(address.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %></td>
         <% end %>
     <% end %>
   </tbody>

@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   private
   
   def after_sign_in_path_for(resource)
-    public_customer_path(id: current_customer)
+    customer_path(id: current_customer)
   end
 
   def after_sign_out_path_for(resource)
-    #root_path
-    new_customer_session_path
+    root_path
+    #new_customer_session_path
   end
 
 end

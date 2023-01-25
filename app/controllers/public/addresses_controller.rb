@@ -13,7 +13,7 @@ class Public::AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
-      redirect_to  public_addresses_path(@customer), notice: "You have created address successfully."
+      redirect_to  addresses_path(@customer), notice: "You have created address successfully."
     else
       @addresses = Address.all
       render :index
@@ -22,7 +22,7 @@ class Public::AddressesController < ApplicationController
   
   def update
     if @address.update(address_params)
-      redirect_to  public_addresses_path(@customer), notice: "You have updated address successfully."
+      redirect_to  addresses_path(@customer), notice: "You have updated address successfully."
     else
       render "edit"
     end
@@ -42,7 +42,7 @@ class Public::AddressesController < ApplicationController
   def ensure_correct_customer
     @address = Address.find(params[:id])
     unless @address.customer == current_customer
-      redirect_to public_customer_path
+      redirect_to customer_path
     end
   end
   

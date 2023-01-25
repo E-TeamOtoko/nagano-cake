@@ -8,7 +8,7 @@
     </p>
   </div>
   <div>
-    <%= link_to "退会しない", public_customer_path(current_customer) %>
-    <%= link_to "退会する", withdraw_public_customers_path(@customer), method: :patch %>
+    <%= link_to "退会しない", customer_path(current_customer) %>
+    <%= link_to "退会する", withdraw_customers_path, method: :patch %>
   </div>
 </div>

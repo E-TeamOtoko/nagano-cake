@@ -1,17 +1,15 @@
 public/customer/editページ
 
 
-
-
-public_addresses GET    /public/addresses(.:format)                                                                       public/addresses#index
-                                         POST   /public/addresses(.:format)                                                                       public/addresses#create
-                     edit_public_address GET    /public/addresses/:id/edit(.:format)                                                              public/addresses#edit
-                          public_address PATCH  /public/addresses/:id(.:format)                                                                   public/addresses#update
-                                         PUT    /public/addresses/:id(.:format)                                                                   public/addresses#update
-                                         DELETE /public/addresses/:id(.:format)                                                                   public/addresses#destroy
-       confirm_withdraw_public_customers GET    /public/customers/confirm_withdraw(.:format)                                                      public/customers#confirm_withdraw
-               withdraw_public_customers PATCH  /public/customers/withdraw(.:format)                                                              public/customers#withdraw
-                    edit_public_customer GET    /public/customers/:id/edit(.:format)                                                              public/customers#edit
-                         public_customer GET    /public/customers/:id(.:format)                                                                   public/customers#show
-                                         PATCH  /public/customers/:id(.:format)                                                                   public/customers#update
-                                         PUT    /public/customers/:id(.:format)                                                                   public/customers#update
+addresses GET    /addresses(.:format)                                                                              public/addresses#index
+                                         POST   /addresses(.:format)                                                                              public/addresses#create
+                            edit_address GET    /addresses/:id/edit(.:format)                                                                     public/addresses#edit
+                                 address PATCH  /addresses/:id(.:format)                                                                          public/addresses#update
+                                         PUT    /addresses/:id(.:format)                                                                          public/addresses#update
+                                         DELETE /addresses/:id(.:format)                                                                          public/addresses#destroy
+              confirm_withdraw_customers GET    /customers/confirm_withdraw(.:format)                                                             public/customers#confirm_withdraw
+                      withdraw_customers PATCH  /customers/withdraw(.:format)                                                                     public/customers#withdraw
+                           edit_customer GET    /customers/:id/edit(.:format)                                                                     public/customers#edit
+                                customer GET    /customers/:id(.:format)                                                                          public/customers#show
+                                         PATCH  /customers/:id(.:format)                                                                          public/customers#update
+                                         PUT    /customers/:id(.:format)                                                                          public/customers#update

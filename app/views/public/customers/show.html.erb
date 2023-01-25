@@ -1,7 +1,7 @@
 <h1>マイページ</h1>
 <h2><strong>登録情報</strong></h2>
 
-<a class="btn btn-sm btn-success" data-method="get" href="<%= edit_public_customer_path(@customer) %>">編集する</a>
+<a class="btn btn-sm btn-success" data-method="get" href="<%= edit_customer_path(@customer) %>">編集する</a>
 
 <table class='table'>
   <tr>
@@ -32,5 +32,8 @@
 
 <h2><strong>配送先</strong></h2>
 
-<a class="btn btn-sm btn-success" data-method="get" href="<%= public_addresses_path(@customer) %>">一覧をみる</a>
+<a class="btn btn-sm btn-success" data-method="get" href="<%= addresses_path(@customer) %>">一覧をみる</a>
 
+<h2><strong>注文履歴</strong></h2>
+
+<a class="btn btn-sm btn-success" data-method="get" href="<%= orders_path(@customer) %>">一覧をみる</a>

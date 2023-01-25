@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>Editing Book</h1>
+        
+        <% if @customer.errors.any? %>
+          <h3>
+          <%= @customer.errors.count %>errors prohibited this obj from being saved:
+          </h3>
+            <ul>
+              <% @customer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+        <% end %>
+    
+        <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
+    
+          <h6>Title</h6>
+          <%= f.text_field :title %>
+    
+          <h6>Opinion</h6>
+          <%= f.text_area :body %></br>
+    
+          <button type="submit" class="btn btn-success">Update Book</button>
+      
+        <% end %>
+    
+        <a href="<%= book_path(@book.id) %>">Show</a>
+        |
+        <a href="/books">Back</a>
+      </div>
+    </div>
+</div>
