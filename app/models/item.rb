@@ -4,5 +4,5 @@ class Item < ApplicationRecord
   has_many :customers, through: :cart_items
   has_one_attached :image
 
-  enum sales_status: {販売中: 1,販売停止中: 2}
+  enum sales_status_method: {sale: 1,stop_sale: 2}
 end
