@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto navbar-inline">
         <% if customer_signed_in? %>
-        
+
           <li class="ml-3 col-lg-3 col-md-1">
             <div class="border border-dark text-center">
                 <a data-method="get" href="<%= public_customer_path(current_customer) %>">
@@ -17,14 +17,14 @@
                 </a>
             </div>
           </li>
-          
+
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">商品一覧</div>
           </li>
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">カート</div>
           </li>
-          
+
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
                 <a data-method="delete" href="<%= destroy_customer_session_path %>">
@@ -32,7 +32,37 @@
                 </a>
             </div>
           </li>
-          
+
+        <% elsif admin_signed_in? %>
+
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">商品一覧</div>
+          </li>
+
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">会員一覧</div>
+          </li>
+
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">注文履歴一覧</div>
+          </li>
+
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">
+              <a href="<%= admin_genres_path %>">
+                ジャンル一覧
+              </a>
+            </div>
+          </li>
+
+          <li class="ml-3 col-lg-3 col-md-1 text-center">
+            <div class="border border-dark">
+                <a data-method="delete" href="<%= destroy_admin_session_path %>">
+                    ログアウト
+                </a>
+            </div>
+          </li>
+
         <% else %>
           <li class="ml-3 col-lg-3 col-md-1">
             <div class="border border-dark text-center">About</div>
@@ -40,7 +70,7 @@
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">商品一覧</div>
           </li>
-          
+
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
                 <a data-method="get" href="<%= new_customer_registration_path %>">
@@ -48,7 +78,7 @@
                 </a>
             </div>
           </li>
-          
+
           <li class="ml-3  col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
                 <a data-method="get" href="<%= new_customer_session_path %>">
@@ -56,7 +86,7 @@
                 </a>
             </div>
           </li>
-          
+
         <% end %>
         </ul>
       </div>
