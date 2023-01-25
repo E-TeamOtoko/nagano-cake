@@ -5,17 +5,20 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
 
-
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
   namespace :admin do
+    get "" => "homes#top"
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :items
+    resources :orders, only: [:index, :show, :update]
   end
 
-  namespace :public do
+  scope module: :public do
+    root :to => "homes#top"
+    get "about" => "homes#about"
     resources :items, only: [:index, :show]
     get "/items/genre/:id"=>"items#genre", as: "items_genre"
     resources :cart_items do
@@ -25,6 +28,12 @@ Rails.application.routes.draw do
     end
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :customers
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get  'success'
+      end
+    end
   end
 
 end
