@@ -1,7 +1,14 @@
 <div class="container mt-5">
   <div class="row mx-auto">
-    <div class="col-lg-4 col-md-4 bg-light text-center">
+    <div class="col-lg-3 col-md-4 bg-light text-center">
      <h5>ショッピングカート</h5>
+    </div>
+    <div class="col-lg-7 col-md-6">
+      <div class="float-right">
+      <%= link_to destroy_all_cart_item_path(current_customer.id), method: :delete do %>
+      <button class="btn btn-danger btn-md">カートを空にする</button>
+      <% end %>
+      </div>
     </div>
   </div>
 
@@ -23,10 +30,49 @@
             <td>
               <%= cart_item.item.item_name %>
             </td>
+            <td>
+              ￥<%= ((cart_item.item.tax_excluded_price*1.1).floor).to_s(:delimited) %>
+            </td>
+            <td>
+              <%= form_with model: cart_item, url: cart_item_path(cart_item.id) do |f| %>
+              <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
+              <%= f.submit "変更", class:"btn btn-success btn-sm" %>
+              <% end %>
+            </td>
+            <td>
+              ￥<%= ((cart_item.item.tax_excluded_price.to_i*1.1).floor*cart_item.quantity).to_s(:delimited) %>
+            </td>
+            <td>
+              <%= link_to cart_item_path(cart_item.id), method: :delete do %>
+              <button class="btn btn-danger btn-md">削除する</button>
+              <% end %>
+            </td>
+            <% @pricesum+=(cart_item.item.tax_excluded_price*1.1).floor*cart_item.quantity %>
           </tr>
           <% end %>
         </tbody>
       </table>
+
+      <%= link_to items_path do %>
+      <button class="btn btn-primary btn-md">買い物を続ける</button>
+      <% end %>
+
+      <div class="float-right">
+        <table class="table table-bordered">
+         <tr>
+          <th class="bg-light">合計金額</th>
+          <td><%= (@pricesum.to_i).to_s(:delimited) %></td>
+         </tr>
+        </table>
+      </div>
     </div>
+  </div>
+
+  <div class="row mx-auto">
+   <div class="col-lg-4 col-md-4 mx-auto">
+   <%= link_to new_order_path do %>
+    <button class="btn btn-success btn-md">情報入力に進む</button>
+   <% end %>
+   </div>
   </div>
 </div>
