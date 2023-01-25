@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get "" => "homes#top"
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :items
+    resources :customers, only: [:index, :show, :edit, :update]
   end
 
   namespace :public do
@@ -23,7 +24,12 @@ Rails.application.routes.draw do
       end
     end
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :customers
+    resources :customers, only: [:show, :edit, :update] do
+      collection do
+        get 'confirm_withdraw'
+        patch 'withdraw'
+      end
+    end
   end
 
 end
