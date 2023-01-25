@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  
+  before_action :authenticate_customer!
   
   def show
     @customer = Customer.find(params[:id])
@@ -18,9 +18,14 @@ class Public::CustomersController < ApplicationController
   end
   
   def confirm_withdraw
+    @customer = Customer.find_by(email: params[:email])
   end
   
   def withdraw
+    @customer = Customer.find_by(email: params[:email])
+    @customer.update(status: true)
+    reset_session
+    redirect_to root_path
   end
   
   private
