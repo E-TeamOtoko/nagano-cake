@@ -18,10 +18,10 @@
           </tr>
         </thead>
         <tbody>
-          <% @cartitems.each do |cartitem| %>
+          <% @cartitems.each do |cart_item| %>
           <tr>
             <td>
-              <%= image_tag cartitem.item.image, size: "100x100" %>
+              <%= cart_item.item.item_name %>
             </td>
           </tr>
           <% end %>

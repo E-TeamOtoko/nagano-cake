@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    root :to => "homes#top"
+    root to: "homes#top"
     get "about" => "homes#about"
     resources :items, only: [:index, :show]
     get "/items/genre/:id"=>"items#genre", as: "items_genre"

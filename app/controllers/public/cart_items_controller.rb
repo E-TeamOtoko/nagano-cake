@@ -5,9 +5,9 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    @additem=CartItem.new(params_cart_item)
-    @additem.save
-    redirect_to public_cart_items_path
+    @additem=CartItem.new(cart_item_params)
+    @additem.save!
+    redirect_to cart_items_path
   end
 
   def update
@@ -21,7 +21,7 @@ class Public::CartItemsController < ApplicationController
 
   private
 
-  def params_cart_item
+  def cart_item_params
     params.require(:cart_item).permit(:customer_id, :item_id, :quantity)
   end
 end
