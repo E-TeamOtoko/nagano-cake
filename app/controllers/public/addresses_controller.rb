@@ -21,6 +21,7 @@ class Public::AddressesController < ApplicationController
   end
   
   def update
+    @address = Address.find(params[:id])
     if @address.update(address_params)
       redirect_to  addresses_path(@customer), notice: "You have updated address successfully."
     else
@@ -29,6 +30,7 @@ class Public::AddressesController < ApplicationController
   end
   
   def destroy
+    @address = Address.find(params[:id])
     @address.destroy
     redirect_to addresses_path
   end

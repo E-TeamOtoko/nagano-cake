@@ -5,10 +5,16 @@
       <%= form_with model: @customer, url: customer_path(@customer), method: :GET do |f| %>
       
       <h1>マイページ</h1>
-      <h2><strong>登録情報</strong></h2>
       
-      <a class="btn btn-sm btn-success" data-method="get" href="<%= edit_customer_path(@customer) %>">編集する</a>
         <table class='table'>
+          <tr>
+            <th>
+              <strong>登録情報</strong>
+            </th>
+            <th>
+              <a class="btn btn-sm btn-success" data-method="get" href="<%= edit_customer_path(@customer) %>">編集する</a>
+            </th>
+          </tr>
           <tr>
               <th>氏名</th>
               <th><%= @customer.last_name %><%= @customer.first_name %></th>
@@ -33,15 +39,23 @@
               <th>メールアドレス</th>
               <th><%= @customer.email %></th>
           </tr>
+          <tr>
+            <th>
+              <strong>配送先</strong>
+            </th>
+            <th>
+              <a class="btn btn-sm btn-primary" data-method="get" href="<%= addresses_path(@customer) %>">一覧をみる</a>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <strong>注文履歴</strong>
+            </th>
+            <th>
+              <a class="btn btn-sm btn-primary" data-method="get" href="<%= orders_path(@customer) %>">一覧をみる</a>
+            </th>
+          </tr>
         </table>
-        
-        <h2><strong>配送先</strong></h2>
-        
-        <a class="btn btn-sm btn-success" data-method="get" href="<%= addresses_path(@customer) %>">一覧をみる</a>
-        
-        <h2><strong>注文履歴</strong></h2>
-        
-        <a class="btn btn-sm btn-success" data-method="get" href="<%= orders_path(@customer) %>">一覧をみる</a>
       <% end %>
     </div>
   </div>

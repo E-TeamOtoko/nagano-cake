@@ -1,1 +1,29 @@
 public/address/editページ
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
+        <h1>配送先編集</h1>
+        
+        <%= form_with model: @address, url: address_path(@address), method: :PATCH do |f| %>
+          <div class="form-group">
+            <b><%= f.label :郵便番号 %></b>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :postal_code, placeholder: "郵便番号", class: "form-control address_postal_code" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :address, placeholder: "住所", class: "form-control address_address" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :name, placeholder: "宛名", class: "form-control address_name" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit '変更内容を保存', class: "btn btn-success" %>
+          </div>
+        <% end %>
+        
+      </div>
+    </div>
+</div>

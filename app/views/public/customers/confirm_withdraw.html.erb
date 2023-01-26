@@ -10,8 +10,8 @@
           </p>
         </div>
         <div>
-          <%= link_to "退会しない", customer_path(current_customer) %>
-          <%= link_to "退会する", withdraw_customers_path(email: @customer.email), method: :patch %>
+          <a class="btn btn-primary" data-method="get" href="<%= customer_path(current_customer) %>">退会しない</a>
+          <a class="btn btn-danger" data-method="patch" href="<%= withdraw_customers_path(email: @customer.email) %>">退会する</a>
         </div>
     </div>
   </div>
