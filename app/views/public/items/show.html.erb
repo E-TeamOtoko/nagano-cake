@@ -1,14 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-2 col-md-3 col-sm-3 col-3 mt-5">
+<div class="container mt-5">
+  <div class="row mt-5">
+    <div class="col-lg-2 col-md-3 col-sm-3 col-3">
       <%= render "public/items/genres_sidebar", genres: @genres %>
     </div>
 
-    <div class="col-lg-3 col-sm-5 col-5 mt-5">
-      <%= image_tag @item.image, size: "200x150" %>
+    <div class="col-lg-3 col-sm-5 col-5 mt-5 mx-auto">
+      <%= image_tag @item.image, size: "300x200" %>
     </div>
 
-    <div class="col-lg-5 col-sm-4 col-4 mt-5 ">
+    <div class="col-lg-5 col-sm-4 col-4 mt-3 ml-4 mt-5 ">
       <table>
         <tr>
           <th><%= @item.item_name %></th>
@@ -22,6 +22,7 @@
           </td>
         </tr>
       </table>
+      <% if customer_signed_in? %>
       <%= form_with model: @additem, url: cart_items_path do |f| %>
 
       <%= f.hidden_field :item_id, :value => params[:id] %>
@@ -31,3 +32,8 @@
 
       <%= f.submit "カートに入れる", class:"btn btn-success btn-md" %>
       <% end %>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

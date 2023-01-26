@@ -1,16 +1,15 @@
-<table class="table table-hover table-borderless">
-  <thead>
+<table class="table table-hover table-bordered">
+  <thead class="thead-light">
     <th>ジャンル検索</th>
   </thead>
   <tbody>
     <% genres.each do |genre| %>
     <tr>
       <td>
-       <%= link_to items_genre_path(genre.id) do %>
+       <%= link_to items_genre_path(genre.id), class:"text-dark" do %>
         <%= genre.name %>
        <% end %>
       </td>
-      <td></td>
     </tr>
     <% end %>
   </tbody>
