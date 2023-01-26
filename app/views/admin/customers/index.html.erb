@@ -1,38 +1,34 @@
-<html>
-    <head>
-        
-    </head>
-    <body>
-        <h1>会員一覧</h1>
-        <table>
-            <thead>
-                <th>
-                    <strong>会員ID</strong>
-                </th>
-                <th>
-                    <strong>氏名</strong>
-                </th>
-                <th>
-                    <strong>メールアドレス</strong>
-                </th>
-                <th>
-                    <strong>ステータス</strong>
-                </th>
-            </thead>
-            <tbody>
-                <tb>
-                    1
-                </tb>
-                <tb>
-                    山田花子
-                </tb>
-                <tb>
-                    @examle.com
-                </tb>
-                <tb>
-                    有効
-                </tb>
-            </tbody>
-        </table>
-    </body>
-</html>
+<h1>会員一覧</h1>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>
+        <strong>会員ID</strong>
+      </th>
+      <th>
+        <strong>氏名</strong>
+      </th>
+      <th>
+        <strong>メールアドレス</strong>
+      </th>
+      <th>
+        <strong>ステータス</strong>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.last_name %><%= customer.first_name %></td>
+        <td><%= customer.email %></td>
+        <td>
+          <% if customer.status === "true" %>
+            <span class="bg-blue-100 text-blue-800 text-xs font-semibold p-2 rounded">有効</span>
+          <% else %>
+            <span class="bg-red-100 text-red-800 text-xs font-semibold p-2 rounded">退会</span>
+          <% end %>
+        </td>
+    <% end %>
+  </tbody>
+</table>
