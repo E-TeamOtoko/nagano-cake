@@ -27,8 +27,10 @@
         <tr>
           <th>税込価格(税抜価格)</th>
           <td>
-            <%= ((@item.tax_excluded_price.to_i*1.1).round).to_s(:delimited) %>
-            (<%= @item.tax_excluded_price.to_s(:delimited) %>)円
+            <strong>
+             <%= ((@item.tax_excluded_price.to_i*1.1).round).to_s(:delimited) %>
+             (<%= @item.tax_excluded_price.to_s(:delimited) %>)円
+            </strong>
             </td>
         </tr>
         <tr>
