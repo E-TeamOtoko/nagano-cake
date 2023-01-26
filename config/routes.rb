@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :customers, skip: [:passwords], controllers: {
+ devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    root :to => "homes#top"
+    root to: "homes#top"
     get "about" => "homes#about"
+    get "genre/items"
     resources :items, only: [:index, :show]
+    get "/items/genre/:id"=>"items#genre", as: "items_genre"
     resources :cart_items do
       member do
        delete "destroy_all"
