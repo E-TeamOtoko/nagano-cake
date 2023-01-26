@@ -10,6 +10,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def update
+    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       redirect_to customer_path(@customer), notice: "You have updated customer_info successfully."
     else
@@ -18,7 +19,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def confirm_withdraw
-    @customer = Customer.find_by(email: params[:email])
+    @customer = Customer.find(params[:id])
   end
   
   def withdraw
@@ -31,7 +32,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :phone_number, :address, :postal_code)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :phone_number, :address, :postal_code, :status)
   end
   
 end
