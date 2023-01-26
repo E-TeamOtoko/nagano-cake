@@ -1,15 +1,74 @@
-public/customer/editページ
-
-
-addresses GET    /addresses(.:format)                                                                              public/addresses#index
-                                         POST   /addresses(.:format)                                                                              public/addresses#create
-                            edit_address GET    /addresses/:id/edit(.:format)                                                                     public/addresses#edit
-                                 address PATCH  /addresses/:id(.:format)                                                                          public/addresses#update
-                                         PUT    /addresses/:id(.:format)                                                                          public/addresses#update
-                                         DELETE /addresses/:id(.:format)                                                                          public/addresses#destroy
-              confirm_withdraw_customers GET    /customers/confirm_withdraw(.:format)                                                             public/customers#confirm_withdraw
-                      withdraw_customers PATCH  /customers/withdraw(.:format)                                                                     public/customers#withdraw
-                           edit_customer GET    /customers/:id/edit(.:format)                                                                     public/customers#edit
-                                customer GET    /customers/:id(.:format)                                                                          public/customers#show
-                                         PATCH  /customers/:id(.:format)                                                                          public/customers#update
-                                         PUT    /customers/:id(.:format)                                                                          public/customers#update
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
+        <h1>会員情報編集</h1>
+        
+        <% if @customer.errors.any? %>
+          <h3>
+          <%= @customer.errors.count %>errors prohibited this obj from being saved:
+          </h3>
+            <ul>
+              <% @customer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+        <% end %>
+    
+        <%= form_with model: @customer, url: customer_path(@customer), method: :patch do |f| %>
+          <table class='table'>
+            <tr>
+              <th>氏名</th>
+              <th>
+                <%= f.text_field :last_name, placeholder: "性", class: "form-control customer_last_name" %>
+              </th>
+              <th>
+                <%= f.text_field :first_name, placeholder: "名", class: "form-control customer_first_name" %>
+              </th>
+            </tr>
+            <tr>
+              <th>フリガナ</th>
+              <th>
+                <%= f.text_field :last_name_kana, placeholder: "カナ性", class: "form-control customer_last_name_kana" %>
+              </th>
+              <th>
+                <%= f.text_field :first_name_kana, placeholder: "カナ名", class: "form-control customer_first_name_kana" %>
+              </th>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <th>
+                <%= f.text_field :postal_code, placeholder: "郵便番号", class: "form-control customer_postal_code" %>
+              </th>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <th>
+                <%= f.text_field :address, placeholder: "住所", class: "form-control customer_address" %>
+              </th>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <th>
+                <%= f.text_field :phone_number, placeholder: "電話番号", class: "form-control customer_phone_number" %>
+              </th>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <th>
+                <%= f.text_field :email, placeholder: "メールアドレス", class: "form-control customer_email" %>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <%= f.submit '編集内容を保存', class: "btn btn-sm btn-success" %>
+              </th>
+              <th>
+                <a class="btn btn-sm btn-danger" data-method="get" href="<%= confirm_withdraw_customers_path(id: @customer.id) %>">退会する</a>
+              </th>
+            </tr>
+          </table>
+          
+        <% end %>
+      </div>
+    </div>
+</div>
