@@ -4,9 +4,9 @@
      <h5>商品一覧</h5>
     </div>
   </div>
-  <div class="row">
-    <table class="mx-auto">
-      <thead>
+  <div class="row mt-5">
+    <table class="table table-borderless mx-auto">
+      <thead class="thead-light">
         <tr>
           <th class="col-2">商品ID</th>
           <th class="col-4">商品名</th>
@@ -19,10 +19,20 @@
       <% @items.each do |item| %>
       <tr>
         <td><%= item.id.to_i %></td>
-        <td><%= item.item_name %></td>
-        <td><%= item.tax_excluded_price %></td>
+        <td>
+         <%= link_to admin_item_path(item.id) do %>
+          <%= item.item_name %>
+         <% end %>
+        </td>
+        <td>￥<%= (item.tax_excluded_price).to_s(:delimited) %></td>
         <td><%= item.genre.name %></td>
-        <td><%= item.sales_status %></td>
+        <td>
+          <% if item.sales_status==true %>
+             <h6 class="text-success"><strong><%= Item.sales_status_methods_i18n[:sale] %></strong></h6>
+          <% else %>
+             <h6 class="text-muted"><strong><%= Item.sales_status_methods_i18n[:stop_sale] %></strong></h6>
+          <% end %>
+        </td>
       </tr>
       <% end %>
       </tbody>
