@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-3 col-3 mt-5">
+      <%= render "public/items/genres_sidebar", genres: @genres %>
+    </div>
+
+     <div class="col-lg-9 col-md-8 col-sm-8 col-8 mt-5">
+      <h1><%= @genre.name %>一覧</h1>
+      <div class="row">
+      <% @genre.items.each do |item| %>
+      <div class="mr-2">
+       <%= link_to item_path(item.id), class:"text-dark" do %>
+        <%= image_tag item.image, size: "200x150" %>
+        <p><%= item.item_name %></p>
+        <p>￥<%= ((item.tax_excluded_price.to_i*1.1).round).to_s(:delimited) %></p>
+       <% end %>
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto">
+    <div class="mx-auto">
+      <%= paginate @items %>
+    </div>
+  </div>
+</div>
