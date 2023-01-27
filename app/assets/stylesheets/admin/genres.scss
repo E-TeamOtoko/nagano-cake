@@ -1,3 +1,20 @@
 // Place all the styles related to the admin/genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.genre-edit {
+  margin: 30px;
+  width: 100%;
+}
+
+.genre-edit h5 {
+  display: inline-block;
+  margin-left: 200px;
+  margin-bottom: 50px;
+  background-color: #EEEEEE;
+  padding: 0 30px;
+}
+
+.form-group {
+  padding-left: 100px;
+}
