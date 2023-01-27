@@ -12,7 +12,7 @@
 
           <li class="ml-3 col-lg-3 col-md-1">
             <div class="border border-dark text-center">
-                <a data-method="get" href="<%= customer_path(current_customer) %>">
+                <a data-method="get" href="<%= customer_path(current_customer) %>" class="text-dark">
                     マイページ
                 </a>
             </div>
@@ -27,7 +27,7 @@
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-                <a data-method="delete" href="<%= destroy_customer_session_path %>">
+                <a data-method="delete" href="<%= destroy_customer_session_path %>" class="text-dark">
                     ログアウト
                 </a>
             </div>
@@ -37,7 +37,7 @@
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-              <a href="<%= admin_items_path %>">
+              <a href="<%= admin_items_path %>" class="text-dark">
                 商品一覧
               </a>
             </div>
@@ -45,7 +45,7 @@
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-              <a href="<%= admin_customers_path %>">
+              <a href="<%= admin_customers_path %>" class="text-dark">
                 会員一覧
               </a>
             </div>
@@ -53,7 +53,7 @@
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-              <a href="<%= admin_orders_path %>">
+              <a href="<%= admin_orders_path %>" class="text-dark">
                 注文履歴一覧
               </a>
             </div>
@@ -61,7 +61,7 @@
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-              <a href="<%= admin_genres_path %>">
+              <a href="<%= admin_genres_path %>" class="text-dark">
                 ジャンル一覧
               </a>
             </div>
@@ -69,7 +69,7 @@
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-                <a data-method="delete" href="<%= destroy_admin_session_path %>">
+                <a data-method="delete" href="<%= destroy_admin_session_path %>" class="text-dark">
                     ログアウト
                 </a>
             </div>
@@ -77,15 +77,21 @@
 
         <% else %>
           <li class="ml-3 col-lg-3 col-md-1">
-            <div class="border border-dark text-center">About</div>
+            <div class="border border-dark text-center">
+              About
+            </div>
           </li>
           <li class="ml-3 col-lg-3 col-md-1 text-center">
-            <div class="border border-dark">商品一覧</div>
+            <div class="border border-dark">
+              <a href="<%= items_path %>" class="text-dark">
+                商品一覧
+              </a>
+            </div>
           </li>
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-                <a data-method="get" href="<%= new_customer_registration_path %>">
+                <a data-method="get" href="<%= new_customer_registration_path %>" class="text-dark">
                     新規登録
                 </a>
             </div>
@@ -93,7 +99,7 @@
 
           <li class="ml-3  col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-                <a data-method="get" href="<%= new_customer_session_path %>">
+                <a data-method="get" href="<%= new_customer_session_path %>" class="text-dark">
                     ログイン
                 </a>
             </div>
