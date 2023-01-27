@@ -9,22 +9,22 @@
       <thead>
         <tr>
           <th class="col-2">商品ID</th>
-          <th class="col-2">商品名</th>
+          <th class="col-4">商品名</th>
           <th class="col-2">税抜価格</th>
-          <th class="col-3">ジャンル</th>
-          <th class="col-3">ステータス</th>
+          <th class="col-2">ジャンル</th>
+          <th class="col-4">ステータス</th>
         </tr>
       </thead>
       <tbody>
-      <%# @items.each do |item| %>
+      <% @items.each do |item| %>
       <tr>
-        <td><%# item.id.to_i %></td>
-        <td><%# item.item_name %></td>
-        <td><%# item.tax_excluded_price %></td>
-        <td><%# item.genre %></td>
-        <td><%# item.sales_status %></td>
+        <td><%= item.id.to_i %></td>
+        <td><%= item.item_name %></td>
+        <td><%= item.tax_excluded_price %></td>
+        <td><%= item.genre.name %></td>
+        <td><%= item.sales_status %></td>
       </tr>
-      <%# end %>
+      <% end %>
       </tbody>
     </table>
   </div>
