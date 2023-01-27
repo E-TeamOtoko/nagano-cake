@@ -59,9 +59,4 @@ gem"devise"
 
 gem "enum_help"
 
-<<<<<<< HEAD
-gem "kaminari"
-
-=======
 gem 'kaminari','~>1.2.1'
->>>>>>> origin/develop
