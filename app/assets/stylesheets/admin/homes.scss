@@ -1,3 +1,23 @@
 // Place all the styles related to the admin/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.admin-sign-in {
+  margin: 30px auto;
+  width: 60%;
+}
+
+.admin-sign-in-title {
+  display: inline-block;
+  padding: 0;
+  margin-bottom: 50px;
+  background-color: #EEEEEE;
+}
+
+.admin-sign-in-title h5{
+  margin: 0 20px;
+}
+
+.admin-sign-in-table {
+  border: none;
+}

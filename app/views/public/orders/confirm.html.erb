@@ -1,0 +1,76 @@
+<div class="container my-5">
+  <div class="row">
+    <div class = "offset-1 text-center">
+      <h3 class="title title-sub-text">
+        注文情報確認
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mt-5 col-8 mx-auto">
+      <table class="table table-bordered">
+        <thead class = "table-active">
+          <tr class="text">
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% set_price = 0 %>
+          <% @cart_items.each do |cart_item| %>
+          <tr class="light-text">
+            <td><%= cart_item.item.name %></td>
+            <td><%= cart_item.item_price %></td>
+            <td><%= cart_item.quantity %></td>
+            <td><%= cart_item.sub_price %></td>
+            <% set_price += cart_item.sub_price %>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-5 col-4 mx-auto">
+      <table class="table table-bordered">
+        <thead class = "table-active">
+          <tr class="text">
+            <th>送料</th>
+            <th>商品合計</th>
+            <th>請求金額</th>
+          </tr>
+        </thead>
+        <tbody class="light-text">
+          <td><%= @order.shipping_fee %></td>
+          <td><#= set_price %></td>
+          <td><#= @order.shipping_fee + set_price %></td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+      <h4 class="mt-4 text"><支払い方法></h4>
+        <div class="light-text">
+          <%= @order.payment %>
+        </div>
+      <h4 class="mt-3 text"><お届け先></h4>
+        <div class="light-text">
+          〒<%= @order.postal_code %>　<%= @order.address %></br>
+            <%= @order.name %></br>
+        </div>
+
+      <%= form_with model: @order, url: orders_path, method: :POST, local: true do |f| %>
+        <%= f.hidden_field :customer_id, :value => current_customer.id %>
+        <%= f.hidden_field :payment, :value => @order.payment %>
+        <%= f.hidden_field :invoice, :value => @order.shipping_fee + set_price %>
+        <%= f.hidden_field :payment, :value => @order.postal_code %>
+        <%= f.hidden_field :address, :value => @order.address %>
+        <%= f.hidden_field :name, :value => @order.name %>
+        
+        <div class="mt-4 text">
+          <%= f.submit "注文確定", class: "btn btn-lg btn-danger ml-auto" %>
+        </div>
+      <% end %>
+</div>
