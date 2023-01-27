@@ -1,3 +1,64 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top {
+  margin: 30px;
+  width: 100%;
+}
+
+.top-text {
+  width: 600px;
+  font-size: 20px;
+  padding: 20px 20px 20px 0px;
+  margin: 100px auto;
+  border: 1px solid black;
+}
+
+.top-nav {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.top-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.top-item {
+  width: 25%;
+}
+
+.top-item p {
+  margin-bottom: 10px;
+}
+
+.top-item-link {
+  position: fixed;
+  bottom: 80px;
+  right: 50px;
+}
+
+.about {
+  text-align: center;
+}
+
+.about-title {
+  margin: 30px 0;
+}
+
+.about-title h1{
+  font-size: 70px;
+}
+
+.about-text {
+  font-size: 25px;
+}
+
+@media screen and (max-width: 800px) {
+  .top-items {
+    width: 100%;
+    display: block;
+    margin: 50px 0;
+  }
+}
