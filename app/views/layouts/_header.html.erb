@@ -19,28 +19,44 @@
           </li>
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
-            <div class="border border-dark">商品一覧</div>
+            <div class="border border-dark">
+              <a href="<%= items_path %>">
+                商品一覧
+              </a>
+            </div>
           </li>
           <li class="ml-3 col-lg-3 col-md-1 text-center">
-            <div class="border border-dark">カート</div>
+            <div class="border border-dark">
+              <a href="<%= cart_items_path %>">
+                カート
+              </a>
+            </div>
           </li>
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-                <a data-method="delete" href="<%= destroy_customer_session_path %>">
-                    ログアウト
-                </a>
+              <a data-method="delete" href="<%= destroy_customer_session_path %>">
+                ログアウト
+              </a>
             </div>
           </li>
 
         <% elsif admin_signed_in? %>
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
-            <div class="border border-dark">商品一覧</div>
+            <div class="border border-dark">
+              <a href="<%= admin_path %>">
+                商品一覧
+              </a>
+            </div>
           </li>
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
-            <div class="border border-dark">会員一覧</div>
+            <div class="border border-dark">
+              <a href="<%= admin_customers_path %>">
+                会員一覧
+              </a>
+            </div>
           </li>
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
@@ -61,33 +77,41 @@
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-                <a data-method="delete" href="<%= destroy_admin_session_path %>">
-                    ログアウト
-                </a>
+              <a data-method="delete" href="<%= destroy_admin_session_path %>">
+                ログアウト
+              </a>
             </div>
           </li>
 
         <% else %>
           <li class="ml-3 col-lg-3 col-md-1">
-            <div class="border border-dark text-center">About</div>
+            <div class="border border-dark text-center">
+              <a href="<%= about_path %>">
+                About
+              </a>
+            </div>
           </li>
           <li class="ml-3 col-lg-3 col-md-1 text-center">
-            <div class="border border-dark">商品一覧</div>
+            <div class="border border-dark">
+              <a href="<%= items_path%>">
+                商品一覧
+              </a>
+            </div>
           </li>
 
           <li class="ml-3 col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-                <a data-method="get" href="<%= new_customer_registration_path %>">
-                    新規登録
-                </a>
+              <a data-method="get" href="<%= new_customer_registration_path %>">
+                新規登録
+              </a>
             </div>
           </li>
 
           <li class="ml-3  col-lg-3 col-md-1 text-center">
             <div class="border border-dark">
-                <a data-method="get" href="<%= new_customer_session_path %>">
-                    ログイン
-                </a>
+              <a data-method="get" href="<%= new_customer_session_path %>">
+                ログイン
+              </a>
             </div>
           </li>
 

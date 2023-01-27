@@ -2,30 +2,30 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
       <h1>商品一覧</h1>
-        <table class='table table-hover table-inverse'>
+        <table>
           <thead>
             <tr>
-              <th>
+
                 <td>商品ID</td>
-              </th>
-              <th>
+
+
                 <td>商品名</td>
-              </th>
-              <th>
+
+
                 <td>税抜価格</td>
-              </th>
-              <th>
+
+
                 <td>ジャンル</t>
-              </th>
-              <th>
+
+
                 <td>ステータス</td>
-              </th>
+
             </tr>
           </thead>
           <tbody>
             <% @items.each do |item| %>
               <tr>
-                <th>
+
                 <td><%= item.id %></td>
                 <td>
                   <a href="<%= item_path(item.id) %>"><%= item.item_name %></a>
@@ -39,7 +39,7 @@
                     販売中
                   <% end %>
                 </td>
-                </th>
+
                 </tr>
             <% end %>
           </tbody>
