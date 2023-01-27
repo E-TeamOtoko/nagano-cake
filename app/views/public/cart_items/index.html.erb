@@ -53,7 +53,7 @@
         </tbody>
       </table>
 
-      <%= link_to items_path do %>
+      <%= link_to root_path do %>
       <button class="btn btn-primary btn-md">買い物を続ける</button>
       <% end %>
 
@@ -67,7 +67,7 @@
       </div>
     </div>
   </div>
-
+ <% if @cartitems.count!=0 %>
   <div class="row mx-auto">
    <div class="col-lg-4 col-md-4 mx-auto">
    <%= link_to new_order_path do %>
@@ -75,4 +75,5 @@
    <% end %>
    </div>
   </div>
+ <% end %>
 </div>
