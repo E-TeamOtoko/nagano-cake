@@ -18,6 +18,19 @@
   margin: 0 20px;
 }
 
-.admin-sign-in-table {
-  border: none;
+.admin-sign-in-table{
+  width: 70%;
+  margin: 0 auto;
 }
+
+.field td{
+  padding-right: 50px;
+}
+
+.actions td{
+  width: 100px;
+  padding-left: 200px;
+}
+
+// せめて入力する枠線の下にログインボタンを配置したい。
+// メールアドレスと枠線の間が空きすぎ

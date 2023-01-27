@@ -5,24 +5,20 @@
 
   <div class="admin-sign-in-table">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <table class="table">
-          <div class="field">
-            <tr>
+        <table>
+            <tr class="field">
               <td><%= f.label :メールアドレス %></td>
               <td><%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email" %></td>
             </tr>
-          </div>
 
-          <div class="field">
-            <tr>
+            <tr class="field">
               <td><%= f.label :パスワード %></td>
               <td><%= f.password_field :password, autocomplete: "current-password" %></td>
             </tr>
-          </div>
 
-          <div class="actions">
+          <tr class="actions">
             <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
-          </div>
+          </tr>
         </table>
       <% end %>
     </div>
