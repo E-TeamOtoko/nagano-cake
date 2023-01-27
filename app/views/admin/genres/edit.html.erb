@@ -4,13 +4,13 @@
   <%= form_with model: [:admin, @genre], method: :patch do |f| %>
     <table>
       <tr>
-        <td class="form-group">
+        <td class="genre-form-group">
           <b><%= f.label :ジャンル名 %></b>
         </td>
-        <td class="form-group">
-          <%= f.text_field :name, class:  "form-control genre_name" %>
+        <td class="genre-form-group">
+          <%= f.text_field :name, class: "textlines" %>
         </td>
-        <td class="form-group">
+        <td class="genre-form-group">
           <%= f.submit '変更を保存', class: "btn btn-success" %>
         </td>
       </tr>

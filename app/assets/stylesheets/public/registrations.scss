@@ -1,0 +1,31 @@
+.public-registrations {
+  margin: 30px auto;
+  width: 70%;
+}
+
+.public-registrations h5 {
+  display: inline-block;
+  padding: 0 20px;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  background-color: #EEEEEE;
+}
+
+.public-registrations-table {
+  width: 100%;
+
+  margin: 0 auto;
+}
+
+.public-registrations-field td:not(.not_css) {
+  padding-right: 50px;
+  padding-bottom: 5px;
+}
+
+.public-registrations-actions td{
+  padding: 20px 0 30px 0;
+}
+
+.public-registrations-link {
+  margin-left: 100px;
+}

@@ -3,44 +3,44 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .genre-new, .genre-edit {
-  margin: 30px;
+  margin: 40px;
   width: 100%;
 }
 
 .genre-new h5, .genre-edit h5 {
   display: inline-block;
-  margin-left: 200px;
+  margin-left: 150px;
   margin-bottom: 50px;
   background-color: #EEEEEE;
   padding: 0 30px;
 }
 
-.form-group {
-  padding-left: 100px;
+.genre-form-group {
+  padding-right: 80px;
 }
 
-.genre-nav {
+.genre-index-nav {
   margin: 40px;
   width: 30%;
 }
 
-.genre {
+.genre-index-title {
   padding: 10px 0 10px 50px;
   border-top: solid 1px #BBBBBB;
   border-bottom: solid 1px #BBBBBB;
   background-color: #EEEEEE;
 }
 
-.box-name {
+.genre-box-list {
+  border-bottom: solid 1px #BBBBBB;
+}
+
+.genre-box-name {
   padding: 10px 150px 10px 50px;
 }
 
-.box-link {
+.genre-box-link {
   padding: 10px 10px 10px 0;
-}
-
-.box-list{
-  border-bottom: solid 1px #BBBBBB;
 }
 
 // boxlistの線を上の線の長さと揃えたい
