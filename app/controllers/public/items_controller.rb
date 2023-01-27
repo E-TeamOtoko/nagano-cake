@@ -14,6 +14,6 @@ class Public::ItemsController < ApplicationController
   def genre
     @genres=Genre.all
     @genre=Genre.find(params[:id])
-    @items=@genre.items.page(params[:page]).per(8)
+    @items=@genre.items.page(params[:page]).per(12)
   end
   end
