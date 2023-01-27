@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
+<<<<<<< HEAD
+ *
+=======
  */
 
 * {
@@ -19,3 +22,4 @@
   padding: 0;
   box-sizing: border-box;
 }
+>>>>>>> origin/develop

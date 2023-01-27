@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2023_01_21_033329) do
     t.string "item_name", null: false
     t.text "item_introduction"
     t.integer "tax_excluded_price", null: false
-    t.integer "sales_status", default: 1, null: false
+    t.boolean "sales_status", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["genre_id"], name: "index_items_on_genre_id"

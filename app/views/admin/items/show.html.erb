@@ -7,10 +7,10 @@
 
   <div class="row mt-5 mx-auto">
     <div class="col-lg-4 mx-auto">
-      <%= image_tag @item.image, size: "200x200" %>
+      <%= image_tag @item.image, size: "200x150" %>
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-7">
       <table>
         <tr>
           <th>商品名</th>
@@ -27,17 +27,19 @@
         <tr>
           <th>税込価格(税抜価格)</th>
           <td>
-            <%= ((@item.tax_excluded_price.to_i*1.1).round).to_s(:delimited) %>
-            (<%= @item.tax_excluded_price.to_s(:delimited) %>)円
+            <strong>
+             <%= ((@item.tax_excluded_price.to_i*1.1).round).to_s(:delimited) %>
+             (<%= @item.tax_excluded_price.to_s(:delimited) %>)円
+            </strong>
             </td>
         </tr>
         <tr>
           <th>販売ステータス</th>
           <td>
-            <% if @item.sales_status.to_i==1 %>
-             <p class="text-success"><%= @item.sales_status %></p>
+            <% if @item.sales_status==true %>
+             <h6 class="text-success"><strong><%= Item.sales_status_methods_i18n[:sale] %></strong></h6>
             <% else %>
-             <p class="text-muted"><%= @item.sales_status %></p>
+             <h6 class="text-muted"><strong><%= Item.sales_status_methods_i18n[:stop_sale] %></strong></h6>
             <% end %>
           </td>
         </tr>
