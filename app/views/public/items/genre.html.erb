@@ -7,7 +7,7 @@
      <div class="col-lg-9 col-md-8 col-sm-8 col-8 mt-5">
       <h1><%= @genre.name %>一覧</h1>
       <div class="row">
-      <% @genre.items.each do |item| %>
+      <% @genreitems.each do |item| %>
       <div class="mr-2">
        <%= link_to item_path(item.id), class:"text-dark" do %>
         <%= image_tag item.image, size: "200x150" %>
@@ -22,7 +22,7 @@
 
   <div class="row mx-auto">
     <div class="mx-auto">
-      <%= paginate @items %>
+      <%= paginate @genreitems %>
     </div>
   </div>
 </div>

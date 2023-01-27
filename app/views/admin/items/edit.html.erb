@@ -5,10 +5,10 @@
     </div>
   </div>
 
+  <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
   <div class="row mx-auto">
     <div class="col-lg-6 mx-auto">
       <table class="table table-borderless">
-      <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
         <tr>
           <th><%= f.label :image, "商品画像" %></th>
           <td><%= f.file_field :image, accept: "image/*" %></td>
@@ -44,7 +44,7 @@
         <%= f.submit "変更を保存", class:"btn btn-success" %>
         </div>
       </div>
-      <% end %>
     </div>
   </div>
+  <% end %>
 </div>
