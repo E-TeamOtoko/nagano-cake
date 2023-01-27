@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.genre-edit {
+.genre-new, .genre-edit {
   margin: 30px;
   width: 100%;
 }
 
-.genre-edit h5 {
+.genre-new h5, .genre-edit h5 {
   display: inline-block;
   margin-left: 200px;
   margin-bottom: 50px;
@@ -18,3 +18,29 @@
 .form-group {
   padding-left: 100px;
 }
+
+.genre-nav {
+  margin: 40px;
+  width: 30%;
+}
+
+.genre {
+  padding: 10px 0 10px 50px;
+  border-top: solid 1px #BBBBBB;
+  border-bottom: solid 1px #BBBBBB;
+  background-color: #EEEEEE;
+}
+
+.box-name {
+  padding: 10px 150px 10px 50px;
+}
+
+.box-link {
+  padding: 10px 10px 10px 0;
+}
+
+.box-list{
+  border-bottom: solid 1px #BBBBBB;
+}
+
+// boxlistの線を上の線の長さと揃えたい
