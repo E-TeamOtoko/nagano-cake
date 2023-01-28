@@ -11,7 +11,11 @@
     <div class="top-items">
       <% @items.first(4).each do |item| %>
         <div class="top-item">
-          <p><%= image_tag item.image, size: "200x200" %></p>
+          <p>
+            <%= link_to(item) do %>
+              <%= image_tag item.image, size: "200x200" %>
+            <% end %>
+          </p>
           <p><%= item.item_name %></p>
           <p>¥<%= item.tax_excluded_price %></p>
         </div>

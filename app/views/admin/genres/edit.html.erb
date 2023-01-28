@@ -1,14 +1,19 @@
 <div class="genre-edit">
   <h5>ジャンル編集</h5>
+
   <%= form_with model: [:admin, @genre], method: :patch do |f| %>
-    <div class="form-group">
-      <b><%= f.label :ジャンル名 %></b>
-    </div>
-    <div class="form-group">
-      <%= f.text_field :name, class:  "form-control genre_name" %>
-    </div>
-    <div class="form-group">
-      <%= f.submit '変更を保存', class: "btn btn-success" %>
-    </div>
+    <table>
+      <tr>
+        <td class="genre-form-group">
+          <b><%= f.label :ジャンル名 %></b>
+        </td>
+        <td class="genre-form-group">
+          <%= f.text_field :name, class: "textlines" %>
+        </td>
+        <td class="genre-form-group">
+          <%= f.submit '変更を保存', class: "btn btn-success" %>
+        </td>
+      </tr>
+    </table>
   <% end %>
 </div>
