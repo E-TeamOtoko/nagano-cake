@@ -31,7 +31,7 @@
           <td>(税込)</td>
         </tr>
       </table>
-      <% if customer_signed_in? %>
+      <% if customers_signed_in? %>
       <%= form_with model: @additem, url: cart_items_path do |f| %>
 
       <%= f.hidden_field :item_id, :value => params[:id] %>
