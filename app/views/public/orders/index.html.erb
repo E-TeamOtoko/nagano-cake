@@ -29,8 +29,8 @@
               <%= order.name %> 様
           </td>
           <td>
-            <% order.order_items.each do |f| %>
-              <%= f.item.name %><br>
+            <% order.order_lists.each do |f| %>
+              <%= f.item.item_name %><br>
             <% end %>
           </td>
           <td><%= order.invoice %></td>
