@@ -1,9 +1,9 @@
 <div class="container my-5">
   <div class="row">
-    <div class="offset-1 text-center">
-      <h3 class="title-sub-text text">
+    <div class="text-center">
+      <h4 class="table-active text-center px-3">
         注文履歴詳細
-      </h3>
+      </h4>
     </div>
   </div>
   <div class="row mt-5">
@@ -58,19 +58,19 @@
           </tr>
         </thead>
         <tbody>
-<% @order.order_lists.each do |order_list| %>
-          <tr class="light-text">
-            <td><%= order_list.item.name %></td>
-            <td><%= order_list.item_pricee %></td>
-            <td><%= order_list.quantity %></td>
-            <td><%= order_list.item_price * order_list.quantity %></td>
-            <td>
-              <%= form_with model: order_list, local: true, method: :patch do |f| %>
-                <%= f.select :production_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"],["製作中","製作中"],["製作完了","製作完了"]], class: "form-control" %>
-              　<%= f.submit "更新", class: "btn btn-primary btn-sm" %>
-              <% end %>
-            </td>
-          </tr>
+          <% @order.order_lists.each do |order_list| %>
+            <tr class="light-text">
+              <td><%= order_list.item.item_name %></td>
+              <td><%= order_list.item_price %></td>
+              <td><%= order_list.quantity %></td>
+              <td><%= order_list.item_price * order_list.quantity %></td>
+              <td>
+                <%= form_with model: order_list, url: admin_order_path(@order), local: true, method: :patch do |f| %>
+                  <%= f.select :production_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"],["製作中","製作中"],["製作完了","製作完了"]], class: "form-control" %>
+                　<%= f.submit "更新", class: "btn btn-primary btn-sm" %>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>
