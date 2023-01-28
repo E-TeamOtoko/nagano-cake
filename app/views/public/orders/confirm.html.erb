@@ -1,9 +1,9 @@
 <div class="container my-5">
   <div class="row">
     <div class = "offset-1 text-center">
-      <h3 class="title title-sub-text">
+      <h4 class="table-active text-center px-3">
         注文情報確認
-      </h3>
+      </h4>
     </div>
   </div>
 
@@ -21,7 +21,7 @@
         <tbody>
           <% @cart_items.each do |cart_item| %>
           <tr class="light-text">
-            <td><%= cart_item.item %></td>
+            <td><%= cart_item.item.item_name %></td>
             <td><%= cart_item.item.with_tax_price %></td>
             <td><%= cart_item.quantity %></td>
             <td><%= cart_item.subtotal %></td>
