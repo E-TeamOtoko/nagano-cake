@@ -2,19 +2,17 @@
   <h5>ジャンル一覧・追加</h5>
 
   <%= form_with model: [:admin, @genre] do |f| %>
-    <table>
-      <tr>
-        <td class="genre-form-group">
-          <b><%= f.label :ジャンル名 %></b>
-        </td>
-        <td class="genre-form-group">
-          <%= f.text_field :name, placeholder: "ジャンル名", class: "textlines" %>
-        </td>
-        <td class="genre-form-group">
-          <%= f.submit '新規登録', class: "btn btn-success" %>
-       </td>
-      </tr>
-    </table>
+ <div class="row">
+    <div class="genre-form-group col-1">
+      <b><%= f.label :ジャンル名 %></b>
+    </div>
+    <div class="genre-form-group col-2">
+      <%= f.text_field :name, placeholder: "ジャンル名", class: "textlines" %>
+    </div>
+    <div class="genre-form-group col-2">
+        <%= f.submit '新規登録', class: "btn btn-success btn-block" %>
+    </div>
+  </div>
   <% end %>
 </div>
 
