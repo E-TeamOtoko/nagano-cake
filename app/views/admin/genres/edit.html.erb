@@ -1,8 +1,14 @@
 <div class="genre-edit">
-  <h5>ジャンル編集</h5>
+  <div class="row">
+    <div class="offset-1 text-center">
+      <h4 class="table-active text-center px-3">
+        ジャンル編集
+      </h4>
+    </div>
+  </div>
 
   <%= form_with model: [:admin, @genre], method: :patch do |f| %>
-    <table>
+    <table class="my-5">
       <tr>
         <td class="genre-form-group">
           <b><%= f.label :ジャンル名 %></b>

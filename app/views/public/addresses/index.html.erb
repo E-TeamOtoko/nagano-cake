@@ -1,42 +1,40 @@
 <div class="container my-5">
   <div class="row">
     <div class="text-center">
-      <h3 class="title">
+      <h4 class="table-active text-center px-3">
         配送先登録/一覧
-      </h3>
+      </h4>
     </div>
   </div>
       
   <div class="row mt-5">
-    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mr-auto">
+    <div class="col-sm-12 col-md-10 px-5 px-sm-0 mr-auto">
       <%= form_with model: @address, url: addresses_path(@address), method: :POST do |f| %>
         <table class='table table-borderless'>
           <tr>
-            <th>郵便番号（ハイフンなし）</th>
+            <th width="250">郵便番号（ハイフンなし）</th>
             <th class="form-group">
-              <%= f.text_field :postal_code, placeholder: "郵便番号", class: "form-control address_postal_code" %>
+              <%= f.text_field :postal_code, placeholder: "0000000", size: 25, class: "textlines-radius" %>
             </th>
           </tr>
           <tr>
             <th>住所</th>
-            <th class="form-group">
-              <%= f.text_field :address, placeholder: "住所", class: "form-control address_address" %>
+            <th class="form-group" colspan="3">
+              <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", size: 68, class: "textlines-radius" %>
             </th>
           </tr>
           <tr>
             <th>宛名</th>
             <th class="form-group">
-              <%= f.text_field :name, placeholder: "宛名", class: "form-control address_name" %>
+              <%= f.text_field :name, placeholder: "令和道子", size: 25, class: "textlines-radius" %>
             </th>
-          </tr>
-          <tr>
             <th><%= f.submit '新規登録', class: "btn btn-success" %></th>
           </tr>
         </table>
       <% end %>
           
-      <table class='table table-bordered'>
-        <thead>
+      <table border="1" style="border-collapse: collapse" class="table-sm" width="1000">
+        <thead class='table-active'>
           <tr>
             <th>郵便番号</th>
             <th>住所</th>

@@ -1,9 +1,9 @@
 <div class="container my-5">
   <div class="row">
     <div class="offset-1 text-center">
-      <h3 class="title">
+      <h4 class="table-active text-center px-3">
         マイページ
-      </h3>
+      </h4>
     </div>
   </div>
   <div class="row mt-5">
@@ -15,36 +15,36 @@
               <strong>登録情報</strong>
             </h3>
           </div>
-          <div class="form-inline col-2">
+          <div class="form-inline col-4">
             <a class="btn btn-success" data-method="get" href="<%= edit_customer_path(@customer) %>">編集する</a>
           </div>
         </div>
       </div>
 
       <%= form_with model: @customer, url: customer_path(@customer), method: :GET do |f| %>
-        <table class="table table-bordered table-sm">
+        <table border="1" style="border-collapse: collapse" class="table-sm" width="600">
           <tr>
-              <th>氏名</th>
+              <th class="table-active">氏名</th>
               <th><%= @customer.last_name %><%= @customer.first_name %></th>
           </tr>
           <tr>
-              <th>カナ</th>
+              <th class="table-active">カナ</th>
               <th><%= @customer.last_name_kana %><%= @customer.first_name_kana %></th>
           </tr>
           <tr>
-              <th>郵便番号</th>
+              <th class="table-active">郵便番号</th>
               <th><%= @customer.postal_code %></th>
           </tr>
           <tr>
-              <th>住所</th>
+              <th class="table-active">住所</th>
               <th><%= @customer.address %></th>
           </tr>
           <tr>
-              <th>電話番号</th>
+              <th class="table-active">電話番号</th>
               <th><%= @customer.phone_number %></th>
           </tr>
           <tr>
-              <th>メールアドレス</th>
+              <th class="table-active">メールアドレス</th>
               <th><%= @customer.email %></th>
           </tr>
         </table>
