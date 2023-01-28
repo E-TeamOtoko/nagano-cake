@@ -60,12 +60,12 @@
         <tbody>
 <% @order.order_lists.each do |order_list| %>
           <tr class="light-text">
-            <td><%= order_list.item.name %></td>
-            <td><%= order_list.item_pricee %></td>
+            <td><%= order_list.item.item_name %></td>
+            <td><%= order_list.item_price %></td>
             <td><%= order_list.quantity %></td>
             <td><%= order_list.item_price * order_list.quantity %></td>
             <td>
-              <%= form_with model: order_list, local: true, method: :patch do |f| %>
+              <%= form_with model: order_list, url: admin_order_path(@order), local: true, method: :patch do |f| %>
                 <%= f.select :production_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"],["製作中","製作中"],["製作完了","製作完了"]], class: "form-control" %>
               　<%= f.submit "更新", class: "btn btn-primary btn-sm" %>
               <% end %>
@@ -85,7 +85,7 @@
             </td>
           <tr>
             <td class="table-active text">送料</td>
-              <%= @order.shipping_fee %></td>
+            <td class="light-text"><%= @order.shipping_fee %></td>
           </tr>
           <tr>
             <td class="table-active text">請求合計金額</td>
