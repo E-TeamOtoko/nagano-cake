@@ -4,15 +4,7 @@ class CartItem < ApplicationRecord
  
   has_one_attached :image
   
-  def item_price
-    (item.price.to_i * 1.1).floor
-  end
-
-  def sub_price
-    self.item_price * self.quantity
-  end
-
-  def invoice
-    CartItem.invoice
+  def subtotal
+    item.with_tax_price*quantity
   end
 end

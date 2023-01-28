@@ -2,9 +2,9 @@
 
   <div class="row">
     <div class="offset-1 text-center">
-      <h3 class="text title-text">
+      <h4 class="table-active text-center px-3">
         注文履歴一覧
-      </h3>
+      </h4>
     </div>
   </div>
   <div class="row mt-5">
@@ -29,8 +29,8 @@
               <%= order.name %> 様
           </td>
           <td>
-            <% order.order_items.each do |f| %>
-              <%= f.item.name %><br>
+            <% order.order_lists.each do |f| %>
+              <%= f.item.item_name %><br>
             <% end %>
           </td>
           <td><%= order.invoice %></td>

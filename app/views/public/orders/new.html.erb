@@ -1,9 +1,11 @@
 <div class="container my-5">
   <div class="row">
     <div class="mt-2 offset-3 title-text text">
-      注文情報入力
+      <h4 class="table-active text-center px-3">
+        注文情報入力
+      </h4>
     </div>
-    </div>
+  </div>
 
     <div class="row">
       <div class="mt-5 col-md-6 mx-auto">
@@ -50,8 +52,8 @@
                       新しいお届け先
                     </label></br>
                   <div class="text">
-                    <%= f.label :postcode, "郵便番号（ハイフンなし）" %>
-                    <%= f.text_field :postcode, placeholder: "0000000" %></br>
+                    <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+                    <%= f.text_field :postal_code, placeholder: "0000000" %></br>
                     <%= f.label :address, "住所　　　　　　　　　　" %>
                     <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %></br>
                     <%= f.label :name, "宛名　　　　　　　　　　" %>

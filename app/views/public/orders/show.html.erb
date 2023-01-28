@@ -1,9 +1,9 @@
 <div class="container my-5">
   <div class="row">
     <div class="offset-1 text-center">
-      <h3 class="text title-sub-text">
+      <h4 class="table-active text-center px-3">
         注文履歴詳細
-      </h3>
+      </h4>
     </div>
   </div>
   <div class="row mt-4">
@@ -83,7 +83,7 @@
         <tbody>
           <% @order_lists.each do |order_list| %>
           <tr class="light-text">
-            <td><%= order_list.item.name %></td>
+            <td><%= order_list.item.item_name %></td>
             <td><%= order_list.item_price %></td>
             <td><%= order_list.quantity %></td>
             <td>
