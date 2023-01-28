@@ -2,17 +2,17 @@
   <h5>ジャンル一覧・追加</h5>
 
   <%= form_with model: [:admin, @genre] do |f| %>
- <div class="row">
-    <div class="genre-form-group col-1">
-      <b><%= f.label :ジャンル名 %></b>
-    </div>
-    <div class="genre-form-group col-2">
-      <%= f.text_field :name, placeholder: "ジャンル名", class: "textlines" %>
-    </div>
-    <div class="genre-form-group col-2">
+    <div class="row">
+      <div class="genre-form-group col-1">
+        <b><%= f.label :ジャンル名 %></b>
+      </div>
+      <div class="genre-form-group col-2">
+        <%= f.text_field :name, placeholder: "ジャンル名", class: "textlines" %>
+      </div>
+      <div class="genre-form-group col-2">
         <%= f.submit '新規登録', class: "btn btn-success btn-block" %>
+      </div>
     </div>
-  </div>
   <% end %>
 </div>
 
@@ -22,14 +22,14 @@
   </div>
 
   <div class="genre-nav-box">
-      <table>
-    <% @genres.each do |genre| %>
+    <table>
+      <% @genres.each do |genre| %>
         <tr class="genre-box-list">
           <td class="genre-box-name"><%= genre.name %></td>
           <td class="genre-box-link"><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-sm btn-success" %></td>
           <td class="genre-box-link"><%= link_to "削除する", admin_genre_path(genre.id), method: :delete, class: "btn btn-sm btn-danger" %></td>
         </tr>
-    <% end %>
-      </table>
+      <% end %>
+    </table>
   </div>
 </div>
