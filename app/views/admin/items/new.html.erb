@@ -6,10 +6,10 @@
     </div>
   </div>
 
-  <div class="row">
+  <%= form_with model: @item, url: admin_items_path do |f| %>
+  <div class="row mx-auto">
     <div class="col-lg-8 mx-auto">
       <table class="table table-borderless">
-      <%= form_with model: @item, url: admin_items_path do |f| %>
         <tr>
           <th><%= f.label :image, "商品画像" %></th>
           <td><%= f.file_field :image, accept: "image/*" %></td>
@@ -45,7 +45,7 @@
         <%= f.submit "新規登録", class:"btn btn-success" %>
         </div>
       </div>
-      <% end %>
     </div>
   </div>
+  <% end %>
 </div>

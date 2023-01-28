@@ -1,20 +1,28 @@
-<div class="container">
+<div class="container my-5">
   <div class="row">
-    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
-      
-      <%= form_with model: @customer, url: customer_path(@customer), method: :GET do |f| %>
-      
-      <h1>マイページ</h1>
-      
-        <table class='table'>
-          <tr>
-            <th>
+    <div class="offset-1 text-center">
+      <h3 class="title">
+        マイページ
+      </h3>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mr-auto">
+      <div class="container mb-5">
+        <div class="row">
+          <div class="form-inline col-3">
+            <h3>
               <strong>登録情報</strong>
-            </th>
-            <th>
-              <a class="btn btn-sm btn-success" data-method="get" href="<%= edit_customer_path(@customer) %>">編集する</a>
-            </th>
-          </tr>
+            </h3>
+          </div>
+          <div class="form-inline col-2">
+            <a class="btn btn-success" data-method="get" href="<%= edit_customer_path(@customer) %>">編集する</a>
+          </div>
+        </div>
+      </div>
+
+      <%= form_with model: @customer, url: customer_path(@customer), method: :GET do |f| %>
+        <table class="table table-bordered table-sm">
           <tr>
               <th>氏名</th>
               <th><%= @customer.last_name %><%= @customer.first_name %></th>
@@ -39,24 +47,33 @@
               <th>メールアドレス</th>
               <th><%= @customer.email %></th>
           </tr>
-          <tr>
-            <th>
-              <strong>配送先</strong>
-            </th>
-            <th>
-              <a class="btn btn-sm btn-primary" data-method="get" href="<%= addresses_path(@customer) %>">一覧をみる</a>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <strong>注文履歴</strong>
-            </th>
-            <th>
-              <a class="btn btn-sm btn-primary" data-method="get" href="<%= orders_path(@customer) %>">一覧をみる</a>
-            </th>
-          </tr>
         </table>
       <% end %>
+      
+      <div class="container mt-5">
+        <div class="row">
+          <div class="form-inline col-3">
+            <h3>
+              <strong>配送先</strong>
+            </h3>
+          </div>
+          <div class="form-inline col-3">
+            <a class="btn btn-primary" data-method="get" href="<%= addresses_path(@customer) %>">一覧をみる</a>
+          </div>
+        </div>
+      </div>
+      <div class="container mb-5">
+        <div class="row">
+          <div class="form-inline col-3">
+            <h3>
+              <strong>注文履歴</strong>
+            </h3>
+          </div>
+          <div class="form-inline col-3">
+            <a class="btn btn-primary" data-method="get" href="<%= orders_path(@customer) %>">一覧をみる</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

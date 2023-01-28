@@ -1,18 +1,30 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
-      <h2>本当に退会しますか？</h2>
-        <div>
-          <p>
-            退会すると、会員登録情報や<br>
-            これまでの購入履歴が閲覧できなくなります。<br>
-            退会する場合は、「退会する」をクリックしてください。
-          </p>
+<div class="container my-5">
+  <div class="row my-5">
+    <div class="col-sm-12 col-md-8 px-5 px-sm-0 my-5 mx-auto offset-1 text-center">
+      <div class="my-5">
+        <h3>本当に退会しますか？</h3>
+      </div>
+      <div class="my-5">
+        <p>
+          退会すると、会員登録情報や<br>
+          これまでの購入履歴が閲覧できなくなります。<br>
+          退会する場合は、「退会する」をクリックしてください。
+        </p>
+      </div>
+      <div class="container text-center my-5">
+        <div class="row text-center">
+          <div class="form-inline col-3 text-center mx-auto">
+          </div>
+          <div class="form-inline col-3 text-center mx-auto">
+            <a class="btn btn-primary" data-method="get" href="<%= customer_path(current_customer) %>">退会しない</a>
+          </div>
+          <div class="form-inline col-3 text-center mx-auto">
+            <a class="btn btn-danger" data-method="patch" href="<%= withdraw_customers_path(email: @customer.email) %>">退会する</a>
+          </div>
+          <div class="form-inline col-3 text-center mx-auto">
+          </div>
         </div>
-        <div>
-          <a class="btn btn-primary" data-method="get" href="<%= customer_path(current_customer) %>">退会しない</a>
-          <a class="btn btn-danger" data-method="patch" href="<%= withdraw_customers_path(email: @customer.email) %>">退会する</a>
-        </div>
+      </div>
     </div>
   </div>
 </div>

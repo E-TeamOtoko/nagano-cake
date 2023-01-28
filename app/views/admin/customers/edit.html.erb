@@ -1,7 +1,13 @@
-<div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
-        <h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h1>
+<div class="container my-5">
+  <div class="row">
+    <div class="text-center">
+      <h3 class="title">
+        <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集
+      </h3>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-sm-12 col-md-8 px-5 px-sm-0  mr-auto">
         
         <% if @customer.errors.any? %>
           <h3>
@@ -13,9 +19,9 @@
               <% end %>
             </ul>
         <% end %>
-    
+        
         <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
-          <table class='table'>
+          <table class="table table-borderless table-sm table-hover col-sm-12 col-md-8 px-5 px-sm-0 mr-auto">
             <tr>
               <th>会員ID</th>
               <th><%= @customer.id %></th>
@@ -76,7 +82,7 @@
           <div class="form-group">
             <%= f.submit '変更を保存', class: "btn btn-success" %>
           </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
+  </div>
 </div>
