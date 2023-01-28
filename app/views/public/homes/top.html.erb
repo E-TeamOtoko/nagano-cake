@@ -1,16 +1,16 @@
 <div class="top">
-  <div class="top-text">
-    ようこそ、ながのCAKEへ!</br>
-    このサイトは、ケーキ販売のECサイトになります。</br>
-    会員でない方も商品の閲覧はできますが、</br>
-    購入には会員登録が必要になります。</br>
-  </div>
+    <div class="top-text">
+      ようこそ、ながのCAKEへ!</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。</br>
+    </div>
 
   <div class="top-nav">
     <h2><b>新着商品</b></h2>
     <div class="top-items">
       <% @items.first(4).each do |item| %>
-        <div class="top-item">
+        <div class="top-item pb-5">
           <p>
             <%= link_to(item) do %>
               <%= image_tag item.image, size: "200x200" %>

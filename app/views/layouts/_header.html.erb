@@ -1,9 +1,13 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border border-dark">
+<header class= "table-warning">
+  <nav class="navbar navbar-expand-lg navbar-dark py-4 bg-warning">
     <div class="container">
       <div class="navbar-brand">
-        <span class="border border-dark text-dark">
-          <%= link_to "LOGO", root_path, class: "text-dark" %>
+        <span class="text-dark">
+          <% if admin_signed_in? %>
+            <%= link_to "ながの Cake", admin_orders_path, class:"fa-solid fa-cake-candles text-dark" %>
+          <% else %>
+            <%= link_to "ながの Cake", root_path, class:"fa-solid fa-cake-candles text-dark" %>
+          <% end %>
         </span>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
