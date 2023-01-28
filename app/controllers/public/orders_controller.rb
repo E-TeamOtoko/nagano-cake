@@ -27,7 +27,7 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order_address] == "option2"
-      @address = Address.find(params[:order][:select_address])
+      @address = Address.find(params[:order][:address_id])
       @order.address = @address.address
       @order.name = @address.name
       @order.postal_code = @address.postal_code
@@ -35,6 +35,7 @@ class Public::OrdersController < ApplicationController
     end
 
     @cart_items=current_customer.cart_items
+    @total_payment = 0
   end
   
   def create
@@ -45,7 +46,7 @@ class Public::OrdersController < ApplicationController
       @order_list = OrderList.new
       @order_list.order_id = @order.id
       @order_list.item_id = cart_item.item_id
-      @order_list.item_price = cart_item.item_price
+      @order_list.item_price =cart_item.item.tax_excluded_price*1.1
       @order_list.quantity = cart_item.quantity
       @order_list.save!
     end
