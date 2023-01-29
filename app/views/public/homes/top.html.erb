@@ -1,14 +1,18 @@
 <div class="top">
+    <div class="background_img">
+    </div>
     <div class="top-text">
-      ようこそ、ながのCAKEへ!</br>
-      このサイトは、ケーキ販売のECサイトになります。</br>
-      会員でない方も商品の閲覧はできますが、</br>
-      購入には会員登録が必要になります。</br>
+      <strong>
+        ようこそ、ながのCAKEへ!</br>
+        このサイトは、ケーキ販売のECサイトになります。</br>
+        会員でない方も商品の閲覧はできますが、</br>
+        購入には会員登録が必要になります。</br>
+      </strong>
     </div>
 
   <div class="top-nav">
     <h2><b>新着商品</b></h2>
-    <div class="top-items">
+    <div class="top-items pt-3">
       <% @items.first(4).each do |item| %>
         <div class="top-item pb-5">
           <p>
