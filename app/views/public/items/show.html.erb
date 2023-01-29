@@ -1,0 +1,50 @@
+<head>
+  <link_to rel="stylesheet" href="assets/stylesheets/public/items.scss"/>
+</head>
+<body>
+<div class="container mt-5">
+  <div class="row mt-5">
+    <div class="col-lg-2 col-md-3 col-sm-3 col-3">
+      <%= render "public/items/genres_sidebar", genres: @genres %>
+    </div>
+
+    <div class="col-lg-3 col-sm-5 col-5 mt-5 mx-auto">
+      <%= image_tag @item.image, size: "300x200" %>
+    </div>
+
+    <div class="col-lg-5 col-sm-4 col-4 mt-3 ml-4 mt-5 ">
+      <table>
+        <tr>
+          <th>
+            <h3><%= @item.item_name %></h3>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <h5><%= @item.item_introduction %></h5>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h4><strong>￥<%= ((@item.tax_excluded_price.to_i*1.1).round).to_s(:delimited) %></strong></h4>
+          </td>
+          <td>(税込)</td>
+        </tr>
+      </table>
+      <% if customer_signed_in?&&@item.sales_status==true %>
+       <%= form_with model: @additem, url: cart_items_path do |f| %>
+
+        <%= f.hidden_field :item_id, :value => params[:id] %>
+        <%= f.hidden_field :customer_id, :value => current_customer.id %>
+
+        <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
+
+        <%= f.submit "カートに入れる", class:"btn btn-success btn-md" %>
+       <% end %>
+      <% elsif @item.sales_status==false %>
+       <h6 class="text-muded"><strong>この商品は購入できません</strong></h6>
+      <% end %>
+    </div>
+  </div>
+</div>
+</body>

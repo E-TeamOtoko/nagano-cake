@@ -1,0 +1,41 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="text-center">
+      <h4 class="table-active text-center px-3">
+        配送先編集
+      </h4>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-sm-12 col-md-10 px-5 px-sm-0  mr-auto">
+      
+      <%= form_with model: @address, url: address_path(@address), method: :PATCH do |f| %>
+        <table class='table table-borderless'>
+          <tr>
+            <th>郵便番号（ハイフンなし）</th>
+            <th class="form-group">
+              <%= f.text_field :postal_code, placeholder: "郵便番号", size: 25, class: "textlines-radius" %>
+            </th>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <th class="form-group" colspan="3">
+              <%= f.text_field :address, placeholder: "住所", size: 68, class: "textlines-radius" %>
+            </th>
+          </tr>
+          <tr>
+            <th>宛名</th>
+            <th class="form-group">
+              <%= f.text_field :name, placeholder: "宛名", size: 25, class: "textlines-radius" %>
+            </th>
+          </tr>
+          <tr>
+            <th><%= f.submit '変更内容を保存', class: "btn btn-success" %></th>
+          </tr>
+        </table>
+      <% end %>
+      
+    </div>
+  </div>
+</div>

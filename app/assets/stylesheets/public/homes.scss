@@ -1,0 +1,77 @@
+// Place all the styles related to the public/homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top {
+  margin: 30px;
+  width: 100%;
+}
+
+.top-text {
+  width: 580px;
+  font-size: 30px;
+  padding: 20px 20px 20px 20px;
+  margin: auto auto;
+  color: #343a40;
+}
+
+.top-nav {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.top-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.top-item {
+  width: 25%;
+}
+
+.top-item p {
+  margin-bottom: 10px;
+}
+
+.top-item-link {
+  position: fixed;
+  bottom: 80px;
+  right: 50px;
+}
+
+.about {
+  text-align: center;
+}
+
+.about-title {
+  margin: 30px 0;
+}
+
+.about-title h1{
+  font-size: 70px;
+}
+
+.about-text {
+  font-size: 25px;
+}
+
+.background_img {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #343a40;
+  opacity: 0.35;
+  height: 380px;
+  width: 600px;
+  background-image: image-url("cakeshop.jpg");
+}
+
+@media screen and (max-width: 800px) {
+  .top-items {
+    width: 100%;
+    display: block;
+    margin: 50px 0;
+  }
+}

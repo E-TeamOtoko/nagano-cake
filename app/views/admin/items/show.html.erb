@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="text-center">
+      <h4 class="table-active text-center px-3">
+        商品詳細
+      </h4>
+    </div>
+  </div>
+
+  <div class="row mt-5 mx-auto">
+    <div class="col-lg-4 mx-auto">
+      <%= image_tag @item.image, size: "200x150" %>
+    </div>
+
+    <div class="col-lg-7">
+      <table>
+        <tr>
+          <th>商品名</th>
+          <td><%= @item.item_name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= @item.item_introduction %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @item.genre.name %></td>
+        </tr>
+        <tr>
+          <th>税込価格(税抜価格)</th>
+          <td>
+            <strong>
+             <%= ((@item.tax_excluded_price.to_i*1.1).round).to_s(:delimited) %>
+             (<%= @item.tax_excluded_price.to_s(:delimited) %>)円
+            </strong>
+            </td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td>
+            <% if @item.sales_status==true %>
+             <h6 class="text-success"><strong><%= Item.sales_status_methods_i18n[:sale] %></strong></h6>
+            <% else %>
+             <h6 class="text-muted"><strong><%= Item.sales_status_methods_i18n[:stop_sale] %></strong></h6>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <div class="row ml-5 mt-3">
+        <div class="ml-5">
+         <%= link_to edit_admin_item_path(@item.id) do %>
+          <button class="btn btn-success btn-md">
+           編集する
+          </button>
+         <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

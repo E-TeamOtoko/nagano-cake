@@ -1,0 +1,99 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1 text-center">
+      <h4 class="table-active text-center px-3">
+        注文履歴詳細
+      </h4>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="offset-1 col-4">
+      <div class="row">
+        <strong class="px-3 text text-size">~注文情報~</strong>
+      </div>
+      <div class="row mt-3">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="table-active text">注文日</td>
+              <td class="light-text"><%= @order.created_at.strftime('%Y年/%m月/%d日') %></td>
+            </tr>
+            <tr>
+              <td class="table-active text">配送先</td>
+              <td class="light-text">
+                〒<%= @order.postal_code %><br>
+                <%= @order.address %><br>
+                <%= @order.name %> 様
+              </td>
+            </tr>
+            <tr>
+              <td class="table-active text">支払い方法</td>
+              <td class="light-text"><%= @order.payment %></td>
+            </tr>
+            <tr>
+              <td class="table-active text">ステータス</td>
+              <td class="light-text"><%= @order.status %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="offset-1 col-4">
+      <div class="row">
+        <strong class="px-3 text text-size">~請求情報~</strong>
+      </div>
+      <div class="row mt-3">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="table-active text">商品合計</td>
+              <td class="light-text">
+                <%= @order.invoice - @order.shipping_fee %>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-active text">配送料</td>
+              <td class="light-text"><%= @order.shipping_fee %></td>
+            </tr>
+            <tr>
+              <td class="table-active text">ご請求額</td>
+              <td class="light-text"><%= @order.invoice %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="offset-1">
+      <strong class="px-3 text text-size">~注文内容~</strong>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="offset-1 col-9">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="table-active text">
+            <th>商品</th>
+            <th>単価(税込み)</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_lists.each do |order_list| %>
+          <tr class="light-text">
+            <td><%= order_list.item.item_name %></td>
+            <td><%= order_list.item_price %></td>
+            <td><%= order_list.quantity %></td>
+            <td>
+              <%= order_list.item_price * order_list.quantity %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

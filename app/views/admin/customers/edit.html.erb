@@ -1,0 +1,88 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="text-center">
+      <h4 class="table-active text-center px-3">
+        <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集
+      </h4>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-sm-12 col-md-8 px-5 px-sm-0  mr-auto">
+        
+        <% if @customer.errors.any? %>
+          <h3>
+          <%= @customer.errors.count %>errors prohibited this obj from being saved:
+          </h3>
+            <ul>
+              <% @customer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+        <% end %>
+        
+        <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+          <table class="table table-borderless">
+            <tr>
+              <th>会員ID</th>
+              <th><%= @customer.id %></th>
+            </tr>
+            <tr>
+              <th>氏名</th>
+              <th>
+                <%= f.text_field :last_name, placeholder: "性", size: 25, class: "textlines-radius" %>
+              </th>
+              <th>
+                <%= f.text_field :first_name, placeholder: "名", size: 25, class: "textlines-radius" %>
+              </th>
+            </tr>
+            <tr>
+              <th>フリガナ</th>
+              <th>
+                <%= f.text_field :last_name_kana, placeholder: "カナ性", size: 25, class: "textlines-radius" %>
+              </th>
+              <th>
+                <%= f.text_field :first_name_kana, placeholder: "カナ名", size: 25, class: "textlines-radius" %>
+              </th>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <th>
+                <%= f.text_field :postal_code, placeholder: "郵便番号", size: 25, class: "textlines-radius" %>
+              </th>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <th colspan="3">
+                <%= f.text_field :address, placeholder: "住所", size: 68, class: "textlines-radius" %>
+              </th>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <th>
+                <%= f.text_field :phone_number, placeholder: "電話番号", size: 25, class: "textlines-radius" %>
+              </th>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <th>
+                <%= f.text_field :email, placeholder: "メールアドレス", size: 25, class: "textlines-radius" %>
+              </th>
+            </tr>
+            <tr>
+              <th><%= f.label :status, "会員ステータス" %></th>
+              <th>
+                <%= f.radio_button :status, "false" %>
+                <%= f.label :status_false, "有効" %>
+                
+                <%= f.radio_button :status, "true" %>
+                <%= f.label :status_true, "退会" %>
+              </th>
+            </tr>
+          </table>
+          <div class="form-group">
+            <%= f.submit '変更を保存', class: "btn btn-success" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

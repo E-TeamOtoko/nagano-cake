@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <div class="row mx-auto">
+    <div class="col-lg-2 col-md-3 bg-light text-center">
+      <h4 class="table-active text-center px-3">
+        商品一覧
+      </h4>
+    </div>
+    <div class="col-lg-10">
+      <div class="float-right">
+     <%= link_to "商品を登録する", new_admin_item_path, class:"btn btn-primary btn-md" %>
+     </div>
+     </div>
+  </div>
+  <div class="row mt-5">
+    <table class="table table-borderless mx-auto">
+      <thead class="thead-light">
+        <tr>
+          <th class="col-2">商品ID</th>
+          <th class="col-4">商品名</th>
+          <th class="col-2">税抜価格</th>
+          <th class="col-2">ジャンル</th>
+          <th class="col-4">ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id.to_i %></td>
+        <td>
+         <%= link_to admin_item_path(item.id), class:"text-dark" do %>
+          <%= item.item_name %>
+         <% end %>
+        </td>
+        <td>￥<%= (item.tax_excluded_price).to_s(:delimited) %></td>
+        <td><%= item.genre.name %></td>
+        <td>
+          <% if item.sales_status==true %>
+             <h6 class="text-success"><strong><%= Item.sales_status_methods_i18n[:sale] %></strong></h6>
+          <% else %>
+             <h6 class="text-muted"><strong><%= Item.sales_status_methods_i18n[:stop_sale] %></strong></h6>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row mx-auto">
+    <div class="mx-auto">
+      <%= paginate @items %>
+    </div>
+  </div>
+  </div>
