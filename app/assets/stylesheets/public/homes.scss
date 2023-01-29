@@ -8,11 +8,11 @@
 }
 
 .top-text {
-  width: 600px;
-  font-size: 20px;
-  padding: 20px 20px 20px 0px;
-  margin: 100px auto;
-  border: 1px solid black;
+  width: 580px;
+  font-size: 30px;
+  padding: 20px 20px 20px 20px;
+  margin: auto auto;
+  color: #343a40;
 }
 
 .top-nav {
@@ -53,6 +53,19 @@
 
 .about-text {
   font-size: 25px;
+}
+
+.background_img {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #343a40;
+  opacity: 0.35;
+  height: 380px;
+  width: 600px;
+  background-image: image-url("cakeshop.jpg");
 }
 
 @media screen and (max-width: 800px) {
