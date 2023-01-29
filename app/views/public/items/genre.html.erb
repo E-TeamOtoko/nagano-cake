@@ -6,6 +6,7 @@
 
      <div class="col-lg-9 col-md-8 col-sm-8 col-8 mt-5">
       <h1><%= @genre.name %>一覧</h1>
+      <h5>(全<%= @genreitems_all.count %>件)</h5>
       <div class="row">
       <% @genreitems.each do |item| %>
       <div class="mr-2">

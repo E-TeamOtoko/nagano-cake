@@ -16,9 +16,9 @@
               支払い方法
             </h4>
               <div class="light-text">
-                <%= f.radio_button :payment, :credit_card %>
+                <%= f.radio_button :payment, 0 %>
                 <%= f.label :payment, "クレジットカード" %>
-                <%= f.radio_button :payment, :transfer %>
+                <%= f.radio_button :payment, 1 %>
                 <%= f.label :payment, "銀行振込" %>
               </div>
 

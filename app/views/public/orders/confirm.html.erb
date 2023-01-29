@@ -52,7 +52,7 @@
 
       <h4 class="mt-4 text"><支払い方法></h4>
         <div class="light-text">
-          <% if @order.payment == 0 %>
+          <% if @order.payment==0 %>
           <%= Order.payment_methods_i18n[:credit_card] %>
           <% else %>
           <%= Order.payment_methods_i18n[:transfer] %>
