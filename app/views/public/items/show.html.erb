@@ -31,18 +31,19 @@
           <td>(税込)</td>
         </tr>
       </table>
-      <% if customer_signed_in? %>
-      <%= form_with model: @additem, url: cart_items_path do |f| %>
+      <% if customer_signed_in?&&@item.sales_status==true %>
+       <%= form_with model: @additem, url: cart_items_path do |f| %>
 
-      <%= f.hidden_field :item_id, :value => params[:id] %>
-      <%= f.hidden_field :customer_id, :value => current_customer.id %>
+        <%= f.hidden_field :item_id, :value => params[:id] %>
+        <%= f.hidden_field :customer_id, :value => current_customer.id %>
 
-      <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
+        <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
 
-      <%= f.submit "カートに入れる", class:"btn btn-success btn-md" %>
+        <%= f.submit "カートに入れる", class:"btn btn-success btn-md" %>
+       <% end %>
+      <% elsif @item.sales_status==false %>
+       <h6 class="text-muded"><strong>この商品は購入できません</strong></h6>
       <% end %>
-      <% end %>
-      </table>
     </div>
   </div>
 </div>
